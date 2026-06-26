@@ -1,6 +1,5 @@
 const connectDB = async () => {
   try {
-    console.log('MONGO_URI:', process.env.MONGO_URI); // ← ADD temporarily
     const conn = await mongoose.connect(process.env.MONGO_URI, {
       maxPoolSize: 10,
     });
@@ -10,3 +9,5 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+module.exports = connectDB;
