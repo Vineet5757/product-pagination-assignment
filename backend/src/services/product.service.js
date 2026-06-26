@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const { Product } = require('../models/Product');
+const { Product } = require('../models/product');
 
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT     = 100;
