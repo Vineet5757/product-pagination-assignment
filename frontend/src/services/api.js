@@ -1,8 +1,13 @@
 import axios from 'axios';
 
+// Normalize the API base so it can be configured as either /api or /api/products
+// without accidentally doubling the products segment in requests.
+const rawBaseURL = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
+const baseURL = rawBaseURL.replace(/\/products\/?$/, '');
+
 // Single axios instance — one place to change base URL or add auth headers later
 const client = axios.create({
-  baseURL : import.meta.env.VITE_API_BASE || 'http://localhost:5000/api',
+  baseURL : baseURL,
   timeout : 10_000,
 });
 
